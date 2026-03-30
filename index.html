@@ -1,205 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparkam | Autonomous Music Management Guru</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sparkam | Autonomous Music Management by Renovate Africa</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <style>
-        :root {
-            --brand-purple: #6a0dad;
-            --brand-pink: #ff1493;
-            --brand-lemon: #ccff00;
-            --dark-bg: #050505;
-            --glass: rgba(255, 255, 255, 0.03);
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background-color: var(--dark-bg);
-            color: #fff;
-            font-family: 'Inter', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-        }
+      :root {
+        --brand-purple: #6a0dad;
+        --brand-pink: #ff1493;
+        --brand-lemon: #ccff00;
+        --dark-bg: #050505;
+        --glass: rgba(255, 255, 255, 0.03);
+      }
 
-        /* Navigation */
-        nav {
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(5, 5, 5, 0.8);
-            backdrop-filter: blur(10px);
-        }
-        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; color: var(--brand-lemon); }
+      * { box-sizing: border-box; }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 10%;
-            background: radial-gradient(circle at 50% 50%, #200536 0%, var(--dark-bg) 70%);
-        }
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            line-height: 1;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, var(--brand-pink), var(--brand-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p { font-size: 1.2rem; max-width: 700px; opacity: 0.7; margin-bottom: 30px; }
+      body {
+        margin: 0;
+        background-color: var(--dark-bg);
+        color: white;
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+      }
 
-        /* Stats/Info Bar */
-        .info-bar {
-            display: flex;
-            justify-content: space-around;
-            padding: 40px 10%;
-            background: var(--glass);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .stat-item h4 { color: var(--brand-lemon); font-size: 2rem; }
-        .stat-item p { font-size: 0.8rem; text-transform: uppercase; opacity: 0.5; }
+      /* This ensures the React content and Footer stack correctly */
+      #root {
+        min-height: 80vh;
+      }
 
-        /* Features Section */
-        .features { padding: 100px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .feature-text h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--brand-pink); }
-        .feature-card {
-            background: var(--glass);
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--brand-purple);
-        }
+      /* Global Footer Styling */
+      .spark-footer {
+        padding: 80px 10% 40px;
+        background: #000;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 50px;
+      }
 
-        /* Pricing Section */
-        .pricing { padding: 100px 5%; text-align: center; background: #0a0a0a; }
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        .price-card {
-            padding: 50px 30px;
-            border-radius: 30px;
-            background: #111;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            position: relative;
-            transition: 0.4s;
-        }
-        .price-card.featured { border: 2px solid var(--brand-purple); transform: scale(1.05); }
-        .price-card:hover { border-color: var(--brand-lemon); }
-        .price-card h3 { font-size: 1.8rem; margin-bottom: 10px; }
-        .price-card .amount { font-size: 3.5rem; font-weight: 800; margin: 20px 0; color: var(--brand-lemon); }
-        
-        .cta-main {
-            background: var(--brand-pink);
-            color: white;
-            padding: 18px 45px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: 0.3s;
-        }
-        .cta-main:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(255, 20, 147, 0.3); }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+      }
 
-        footer { padding: 50px; text-align: center; border-top: 1px solid var(--glass); opacity: 0.5; font-size: 0.9rem; }
+      .footer-brand h3 { color: var(--brand-pink); margin-bottom: 15px; }
+      .footer-brand p { opacity: 0.6; font-size: 0.9rem; max-width: 350px; }
+
+      .footer-links h4 { color: var(--brand-lemon); margin-bottom: 15px; font-size: 0.9rem; text-transform: uppercase; }
+      .footer-links p { margin: 8px 0; opacity: 0.8; font-size: 0.9rem; }
+
+      .society-join {
+        background: var(--glass);
+        padding: 30px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .copyright {
+        margin-top: 60px;
+        text-align: center;
+        opacity: 0.3;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+      }
+
+      a { color: inherit; text-decoration: none; transition: 0.3s; }
+      a:hover { color: var(--brand-lemon); }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    
+    <div id="root"></div>
 
-    <nav>
-        <div class="logo">SPARKAM</div>
-        <div>
-            <a href="#features" style="color:white; text-decoration:none; margin-right:20px;">Features</a>
-            <a href="dashboard.html" class="cta-main" style="padding: 10px 25px;">Beta Login</a>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <p style="color: var(--brand-lemon); font-weight: bold; letter-spacing: 4px;">BETA 1.0 IS LIVE</p>
-        <h1>Autonomous Music Management.</h1>
-        <p>The Sovereign Engine doesn't just promote your music—it manages your career. Deploy campaigns, track fan data, and let the AI Guru optimize your growth 24/7.</p>
-        <a href="#pricing" class="cta-main">Get Started</a>
-    </section>
-
-    <section class="info-bar">
-        <div class="stat-item"><h4>50+</h4><p>Beta Artists</p></div>
-        <div class="stat-item"><h4>Auto</h4><p>Workflow Logic</p></div>
-        <div class="stat-item"><h4>24/7</h4><p>Sovereign Monitoring</p></div>
-    </section>
-
-    <section id="features" class="features">
-        <div class="feature-text">
-            <h2>The AI Brain: Beyond a Dashboard</h2>
-            <p>Traditional tools give you charts. Sparkam gives you an executive. Our proprietary <strong>Sovereign Logic</strong> analyzes your skip-rates, audience location, and tempo to build a custom road-map for every release.</p>
-        </div>
-        <div>
-            <div class="feature-card">
-                <h4>🎛️ Autonomous Workflows</h4>
-                <p>Set your budget and goals. The AI Brain handles the deployment across ad networks and curators.</p>
-            </div>
-            <div class="feature-card">
-                <h4>🧠 Guru Training</h4>
-                <p>The more you release, the smarter your personal AI Guru becomes at predicting your fan behavior.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="pricing">
-        <h2>Select Your Tier</h2>
-        <p style="opacity: 0.6;">Professional branding and promotion for every stage of your career.</p>
+    <footer class="spark-footer">
+      <div class="footer-grid">
         
-        <div class="pricing-grid">
-            <div class="price-card">
-                <h3>Starter</h3>
-                <div class="amount">50k</div>
-                <ul style="list-style:none; margin: 20px 0; opacity: 0.8; text-align: left;">
-                    <li>✓ Basic AI Promotion</li>
-                    <li>✓ Smart Fan-Links</li>
-                    <li>✓ Email Support</li>
-                </ul>
-                <a href="upload.html?tier=starter" class="cta-main" style="background:transparent; border: 1px solid white;">Join Beta</a>
-            </div>
-
-            <div class="price-card featured">
-                <div style="position:absolute; top:-15px; left:50%; transform:translateX(-50%); background:var(--brand-lemon); color:black; padding:5px 15px; border-radius:20px; font-size:0.7rem; font-weight:bold;">MOST POPULAR</div>
-                <h3>Growth</h3>
-                <div class="amount">99k</div>
-                <ul style="list-style:none; margin: 20px 0; opacity: 0.8; text-align: left;">
-                    <li>✓ Full Workflow Automation</li>
-                    <li>✓ Audience Segment Tracking</li>
-                    <li>✓ AI Brain Insights</li>
-                </ul>
-                <a href="upload.html?tier=growth" class="cta-main">Join Beta</a>
-            </div>
-
-            <div class="price-card">
-                <h3>Professional</h3>
-                <div class="amount">199k</div>
-                <ul style="list-style:none; margin: 20px 0; opacity: 0.8; text-align: left;">
-                    <li>✓ Sovereign Logic Access</li>
-                    <li>✓ Personalized AI Guru</li>
-                    <li>✓ Priority Ad Placement</li>
-                </ul>
-                <a href="upload.html?tier=pro" class="cta-main" style="background:transparent; border: 1px solid white;">Join Beta</a>
-            </div>
+        <div class="footer-brand">
+          <h3>Sparkam.ng</h3>
+          <p>
+            The world's first autonomous music management engine. 
+            Designed to give independent artists the power of a major label 
+            through the Sovereign AI Brain.
+          </p>
+          <p style="margin-top: 20px; font-weight: bold;">Created by Renovate Africa</p>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2026 Sparkam AI. Built for the Independent Era.</p>
+        <div class="footer-links">
+          <h4>Contact Us</h4>
+          <p><a href="mailto:hello@sparkam.ng">hello@sparkam.ng</a></p>
+          <p>Abuja, Nigeria</p>
+          <p>Support: 24/7 AI Guru</p>
+        </div>
+
+        <div class="society-join">
+          <h4>Join Spark Society</h4>
+          <p style="font-size: 0.8rem; margin-bottom: 15px;">Get music industry updates and early access to Sovereign workflows.</p>
+          <form style="display: flex; flex-direction: column; gap: 10px;">
+            <input type="email" placeholder="Email Address" style="padding: 12px; border-radius: 5px; border: none; background: #222; color: white;">
+            <button type="submit" style="background: var(--brand-pink); color: white; border: none; padding: 12px; border-radius: 5px; font-weight: bold; cursor: pointer;">
+              Join Society
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        &copy; 2026 SPARKAM AI MUSIC PROMO APP. ALL RIGHTS RESERVED. 
+        <br>POWERED BY THE SOVEREIGN ENGINE.
+      </div>
     </footer>
 
-    <script src="brain-core.js"></script>
-    <script src="sovereign-logic.js"></script>
-</body>
-      </html>
-              
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
