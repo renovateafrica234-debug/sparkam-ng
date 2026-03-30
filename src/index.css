@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 252 67% 4%;
+    --foreground: 0 0% 100%;
+    --card: 252 33% 7%;
+    --card-foreground: 0 0% 100%;
+    --popover: 252 33% 7%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 328 100% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 252 20% 15%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 252 20% 15%;
+    --muted-foreground: 252 20% 72%;
+    --accent: 186 100% 59%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 252 20% 20%;
+    --input: 252 20% 20%;
+    --ring: 328 100% 59%;
+    --radius: 1.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    background-color: #070517;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Poppins', sans-serif;
+  }
+  .font-mono {
+    font-family: 'Space Mono', monospace;
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #FF2D8F 0%, #2DEBFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .border-gradient {
+    border-image: linear-gradient(135deg, #FF2D8F 0%, #2DEBFF 100%) 1;
+  }
+  .bg-gradient-neon {
+    background: linear-gradient(135deg, #FF2D8F 0%, #7B2DFF 50%, #2DEBFF 100%);
+  }
+  .glow-pink {
+    box-shadow: 0 0 40px rgba(255, 45, 143, 0.4), 0 0 80px rgba(255, 45, 143, 0.2);
+  }
+  .glow-cyan {
+    box-shadow: 0 0 40px rgba(45, 235, 255, 0.4), 0 0 80px rgba(45, 235, 255, 0.2);
+  }
+  .glow-violet {
+    box-shadow: 0 0 40px rgba(123, 45, 255, 0.4), 0 0 80px rgba(123, 45, 255, 0.2);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070517;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF2D8F;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5aa8;
+}
+
+/* Grain overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Neon blob animations */
+@keyframes blob-drift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(2vw, -2vh) scale(1.02);
+  }
+  50% {
+    transform: translate(-1vw, 2vh) scale(0.98);
+  }
+  75% {
+    transform: translate(-2vw, -1vh) scale(1.01);
+  }
+}
+
+.animate-blob-drift {
+  animation: blob-drift 8s ease-in-out infinite;
+}
+
+.animate-blob-drift-slow {
+  animation: blob-drift 12s ease-in-out infinite;
+}
+
+/* Card gradient border */
+.card-gradient-border {
+  position: relative;
+  background: #0B0A1A;
+  border-radius: 28px;
+}
+.card-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  padding: 4px;
+  background: linear-gradient(135deg, #FF2D8F 0%, #2DEBFF 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Section pinned styles */
+.section-pinned {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Vignette effect */
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(7, 5, 23, 0.8) 100%);
+  pointer-events: none;
+}
